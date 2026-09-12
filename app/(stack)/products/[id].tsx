@@ -1,21 +1,33 @@
 import { products } from '@/store/products.store';
 import { Redirect, useLocalSearchParams } from 'expo-router';
-import { Text, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+
 const ProductScreen = () => {
   const { id } = useLocalSearchParams();
+  const product = products.find((p) => p.id === id);
 
-  const product = products.find((p) => p.id == id);
-  console.log({id});
   if (!product) {
-    return <Redirect href="/" />;
+    return <Redirect href="/(stack)/products" />;
   }
 
   return (
-    <View className="px-5 mt-2">
-      <Text className="font-work-black text-2xl">{product.title}</Text>
-      <Text className="">{product.description}</Text>
-      <Text className="font-work-black">{product.price}</Text>
-    </View>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <Image source={{ uri: product.imagenUrl }} style={styles.image} />
+      <View style={styles.body}>
+        <Text style={styles.title}>{product.titulo}</Text>
+        <Text style={styles.detail}>{product.detalle}</Text>
+      </View>
+    </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#F5F5F5' },
+  content: { paddingBottom: 24 },
+  image: { width: '100%', height: 260, backgroundColor: '#E5E7EB' },
+  body: { padding: 20 },
+  title: { fontSize: 26, fontWeight: '700', color: '#111827', marginBottom: 10 },
+  detail: { fontSize: 16, lineHeight: 22, color: '#374151' },
+});
+
 export default ProductScreen;

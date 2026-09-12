@@ -1,37 +1,40 @@
-export const products = [
-  {
-    id: '1',
-    title: 'Auriculares Inalámbricos',
-    description:
-      'Experimenta una calidad de sonido premium con estos auriculares inalámbricos. Diseñados para la comodidad y el uso prolongado, son perfectos para amantes de la música y profesionales por igual.',
-    price: 99.99,
-  },
-  {
-    id: '2',
-    title: 'Reloj Inteligente',
-    description:
-      'Mantente conectado y sigue tu estado físico con este elegante y moderno reloj inteligente. Equipado con funciones como monitoreo de frecuencia cardíaca, GPS y más.',
-    price: 149.99,
-  },
-  {
-    id: '3',
-    title: 'Altavoz Bluetooth',
-    description:
-      'Portátil y potente, este altavoz Bluetooth ofrece un sonido claro y nítido donde quiera que vayas. Ideal para fiestas, actividades al aire libre y más.',
-    price: 59.99,
-  },
-  {
-    id: '4',
-    title: 'Ratón para Gaming',
-    description:
-      'Mejora tu experiencia de juego con este ratón para gaming de alta precisión. Diseñado ergonómicamente y construido para durar, es imprescindible para cualquier jugador.',
-    price: 39.99,
-  },
-  {
-    id: '5',
-    title: 'Monitor 4K',
-    description:
-      'Disfruta de impresionantes visuales con este monitor 4K. Perfecto para juegos, trabajo o entretenimiento, ofrece colores vibrantes y detalles nítidos.',
-    price: 299.99,
-  },
+import { Producto } from '@/models/Producto';
+
+export const products: Producto[] = [
+  new Producto(
+    '1',
+    'Bebida Cola 1.5L',
+    'Bebida gaseosa sabor cola, botella retornable de 1.5 litros, ideal para el mostrador de bebidas.',
+    'https://loremflickr.com/800/600/soda?lock=101'
+  ),
+  new Producto(
+    '2',
+    'Pan de Molde',
+    'Pan de molde blanco, bolsa de 500 gramos, uno de los productos de mayor rotación en el minimarket.',
+    'https://loremflickr.com/800/600/bread?lock=102'
+  ),
+  new Producto(
+    '3',
+    'Leche Entera 1L',
+    'Leche entera semidescremada, envase tetra brik de 1 litro, refrigerar después de abrir.',
+    'https://loremflickr.com/800/600/milk?lock=103'
+  ),
+  new Producto(
+    '4',
+    'Arroz Grado 1',
+    'Arroz grado 1, bolsa de 1 kilo, producto básico de la canasta familiar.',
+    'https://loremflickr.com/800/600/rice?lock=104'
+  ),
+  new Producto(
+    '5',
+    'Papas Fritas',
+    'Papas fritas saladas, bolsa individual de 150 gramos, snack de venta rápida en caja.',
+    'https://loremflickr.com/800/600/chips?lock=105'
+  ),
+  new Producto(
+    '6',
+    'Chocolate en Barra',
+    'Barra de chocolate con leche de 100 gramos, exhibida junto a la caja registradora.',
+    'https://loremflickr.com/800/600/chocolate?lock=106'
+  ),
 ];
