@@ -1,33 +1,30 @@
 /** @type {import('tailwindcss').Config} */
+const { colors } = require('./contants/theme');
+
 module.exports = {
-  // NOTE: Update this to include the paths to all files that contain Nativewind classes.
-  content: ["./app/index.tsx", 
-    "./components/**/*.{js,jsx,ts,tsx}",
-    "./app/**/*.{js,jsx,ts,tsx}",
-    "./app.{js,jsx,ts,tsx}",],
-  presets: [require("nativewind/preset")],
+  content: [
+    './app/index.tsx',
+    './components/**/*.{js,jsx,ts,tsx}',
+    './app/**/*.{js,jsx,ts,tsx}',
+    './app.{js,jsx,ts,tsx}',
+  ],
+  presets: [require('nativewind/preset')],
   theme: {
     extend: {
-       colors: {
-        primary: '#49129C',
-        secondary: {
-          DEFAULT: '#B40086',
-          100: '#C51297',
-          200: '#831266',
-        },
-        tertiary: '#EF2967'
-
-
+      colors: {
+        bosque: colors.bosque,
+        noche: colors.noche,
+        cobre: colors.cobre,
+        grisClaro: colors.grisClaro,
+        textoSecundario: colors.textoSecundario,
+        peligro: colors.peligro,
       },
-
-      fontFamily:{
-        'work-black': [ 'WorkSans-Black', 'sans-serif' ],
-        'work-light': [ 'WorkSans-Light', 'sans-serif' ],
-        'work-medium': [ 'WorkSans-Medium', 'sans-serif' ],
-      }
-
-
+      fontFamily: {
+        titulo: ['Fraunces_600SemiBold'],
+        cuerpo: ['WorkSans_400Regular'],
+        'cuerpo-medio': ['WorkSans_500Medium'],
+      },
     },
   },
   plugins: [],
-}
+};

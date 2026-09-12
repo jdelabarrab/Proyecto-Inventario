@@ -1,67 +1,32 @@
 import React from 'react';
-import { View, Text, Pressable, PressableProps } from 'react-native';
+import { Pressable, PressableProps, Text, View } from 'react-native';
 
 interface Props extends PressableProps {
   children: string;
-  color?: 'primary' | `secondary` | 'tertiary';
-
+  color?: 'bosque' | 'noche' | 'cobre'; // colores de la paleta Bosque Nocturno
   variant?: 'contained' | 'text-only';
   className?: string;
 }
 
 const CustomButton = React.forwardRef(
-  (
-    {
-      children,
-      color = 'primary',
-      onPress,
-      onLongPress,
-      variant = 'contained',
-      className,
-    }: Props,
-    ref: React.Ref<View>
-  ) => {
-    const btnColor = {
-      primary: 'bg-primary',
-      secondary: 'bg-secondary',
-      tertiary: 'bg-tertiary',
-    }[color];
-
-    const textColor = {
-      primary: 'text-primary',
-      secondary: 'text-secondary',
-      tertiary: 'text-tertiary',
-    }[color];
+  ({ children, color = 'bosque', onPress, onLongPress, variant = 'contained', className }: Props, ref: React.Ref<View>) => {
+    const bgColor = { bosque: 'bg-bosque', noche: 'bg-noche', cobre: 'bg-cobre' }[color];
+    const textColor = { bosque: 'text-bosque', noche: 'text-noche', cobre: 'text-cobre' }[color];
 
     if (variant === 'text-only') {
       return (
-        <Pressable
-          className={`p-3 ${className}`}
-          onPress={onPress}
-          onLongPress={onLongPress}
-          ref={ref}
-        >
-          <Text className={`text-center ${textColor} font-work-medium`}>
-            {children}
-          </Text>
+        <Pressable className={`p-3 ${className}`} onPress={onPress} onLongPress={onLongPress} ref={ref}>
+          <Text className={`text-center ${textColor} font-cuerpo-medio`}>{children}</Text>
         </Pressable>
       );
     }
 
     return (
-      <Pressable
-        className={`p-3 rounded-md ${btnColor} active:opacity-90 ${className}`}
-        onPress={onPress}
-        onLongPress={onLongPress}
-        ref={ref}
-      >
-        <Text className="text-white text-center font-work-medium">
-          {children}
-        </Text>
+      <Pressable className={`p-3 rounded-md ${bgColor} active:opacity-90 ${className}`} onPress={onPress} onLongPress={onLongPress} ref={ref}>
+        <Text className="text-white text-center font-cuerpo-medio">{children}</Text>
       </Pressable>
     );
   }
 );
 
 export default CustomButton;
-
