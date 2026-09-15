@@ -1,5 +1,6 @@
 import { useStock } from '@/store/StockContext';
 import { FlatList, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ReportesScreen = () => {
   const { productos } = useStock();
@@ -7,7 +8,7 @@ const ReportesScreen = () => {
   const ordenados = [...productos].sort((a, b) => a.cantidad - b.cantidad); // menor stock primero
 
   return (
-    <View className="flex-1 bg-noche px-4 pt-6">
+    <SafeAreaView className="flex-1 bg-noche px-4 pt-6">
       <Text className="font-titulo text-2xl text-white mb-1">Reporte de inventario</Text>
       <Text className="font-cuerpo text-grisClaro mb-4">{productos.length} productos · {totalUnidades} unidades en stock</Text>
 
@@ -21,7 +22,7 @@ const ReportesScreen = () => {
           </View>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 export default ReportesScreen;
